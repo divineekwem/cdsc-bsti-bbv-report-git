@@ -9,8 +9,11 @@
   library(skimr)
   library(odbc)
   library(zoo)
+  library(yaml)
 
-
+config<-yaml::read_yaml('config.yaml')
+linelist<-read_csv(config$paths$data_paths,
+                   show_col_types=FALSE)
 # ---- Read data ----
 linelist <- read_csv("cdsc_new_year_outbreak_linelist.csv", show_col_types = FALSE)
 
